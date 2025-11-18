@@ -1,6 +1,12 @@
 import { Link2, Server, Lock } from 'lucide-react'
 
 export default function Integrations() {
+  const example = `fetch(\`${import.meta.env.VITE_BACKEND_URL}/moodle/sync\`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ courseId: 123 }),
+})`
+
   return (
     <section id="integrations" className="py-16 md:py-24 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,11 +25,7 @@ export default function Integrations() {
           <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-6">
             <p className="text-slate-300 text-sm">Пример подключения</p>
             <div className="mt-3 rounded-lg bg-slate-950 p-4 text-xs text-slate-300 font-mono overflow-auto">
-              <pre>{`fetch(`${'${import.meta.env.VITE_BACKEND_URL}'}/moodle/sync`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ courseId: 123 }),
-})`}</pre>
+              <pre>{example}</pre>
             </div>
             <p className="mt-3 text-xs text-slate-400">Базовый URL настраивается через переменную окружения.</p>
           </div>
